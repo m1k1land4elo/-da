@@ -1,11 +1,17 @@
 let CheckNumber;
 let wopo;
-document.getElementById("button").addEventListener("click", examination);
+let count = 0; 
+
+document.getElementById("button").addEventListener("click", function () {
+    examination();
+    incrementCounter();
+});
 
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 var randomNumber = getRandom(0, 100);
+
 function examination() {
     CheckNumber = parseInt(document.getElementById("numericInput").value);
     if (isNaN(CheckNumber)) {
@@ -18,4 +24,9 @@ function examination() {
         wopo = "Число меньше!";
     }
     document.getElementById("otvet").innerHTML = wopo;
+}
+
+function incrementCounter() {
+    count++; 
+    document.getElementById("count").textContent = `Счетчик: ${count}`;
 }
